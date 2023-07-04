@@ -1,0 +1,32 @@
+<todo-add [nextId]="items.length" (added)="onAddd($event)" ></todo-add>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Todo </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let item of items | todos : false">
+        <div>
+          <mat-checkbox [(ngModel)]="item.checked"></mat-checkbox>
+          <span>{{ item.description }}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Erledigt </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let item of items | todos : true">
+        <div>
+          <mat-checkbox [(ngModel)]="item.checked"></mat-checkbox>
+          <span>{{ item.description }}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
